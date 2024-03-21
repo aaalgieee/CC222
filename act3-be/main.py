@@ -1,7 +1,5 @@
 import os
-from fastapi import FastAPI, Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from datetime import datetime, timedelta
+from fastapi import FastAPI, Depends
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import Session
@@ -21,7 +19,7 @@ DB_URL = "mysql+pymysql://gab:gabgab123!!!@localhost:3306/Exam"
 
 # FastAPI app instance
 app = FastAPI()
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
+
 
 engine = create_engine(DB_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
